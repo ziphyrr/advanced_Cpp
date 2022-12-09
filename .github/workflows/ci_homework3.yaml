@@ -53,11 +53,11 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build
-      working-directory: ${{github.workspace}}/homework3/tests/
-      run: g++ must_have_test_set.cpp -I include -o must_have_test
+      working-directory: ${{github.workspace}}/homework3/
+      run: g++ tests/must_have_test_set.cpp -I set_project_dir -o must_have_test
 
     - name: Test
-      working-directory: ${{github.workspace}}/homework3/tests/
+      working-directory: ${{github.workspace}}/homework3/
       run: ./must_have_test
 
   clang-format-checking:
