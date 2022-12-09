@@ -1,0 +1,4 @@
+build/
+googletest
+main.cpp
+set_project_dir/a.out
