@@ -1,0 +1,6 @@
+build/
+googletest
+main.cpp
+set_project_dir/a.out
+a.out
+must_have_test
