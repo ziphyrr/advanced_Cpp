@@ -1,6 +1,9 @@
 #pragma once // NOLINT
+
 #include <vector>
 #include <memory>
+
+class CustomMatrix;
 
 class CustomVector {
  public:
@@ -22,6 +25,12 @@ class CustomVector {
     CustomVector &operator=(const CustomVector &rhs);
     CustomVector &operator=(CustomVector &&rhs);
 
+    // унарные операторы
+    const CustomVector &operator+() const;
+    CustomVector &operator+();
+    CustomVector operator-() const;
+
+
     // операторы += и подобные для вектора и числа
     CustomVector &operator+=(const double &rhs);
     CustomVector &operator-=(const double &rhs);
@@ -42,8 +51,12 @@ class CustomVector {
     CustomVector operator-(const CustomVector &rhs) const;
     CustomVector operator*(const CustomVector &rhs) const;
 
-
+    CustomVector dot(const CustomMatrix &rhs) const;
  private:
     size_t _size;
     std::unique_ptr<double[]> _data;
 };
+
+CustomVector operator+(const double &lhs, const CustomVector &rhs);
+CustomVector operator-(const double &lhs, const CustomVector &rhs);
+CustomVector operator*(const double &lhs, const CustomVector &rhs);
